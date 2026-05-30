@@ -27,14 +27,23 @@ Thumbs.db
 *.pt
 outputs/checkpoints/
 
-# Training Outputs
+# Generated Outputs
 outputs/*.png
 outputs/*.jpg
 outputs/*.jpeg
+outputs/*.wav
+outputs/*.mp4
 
-# Temporary Test Files
+# Temporary Files
 *.tmp
 
 # IDE
 .vscode/
 .idea/
+
+# Testing Cache
+.pytest_cache/
+
+# Build Files
+build/
+dist/
