@@ -1,79 +1,71 @@
 # DeepTrace AI Detector
 
-DeepTrace AI Detector is a multimodal AI-powered deepfake detection platform developed for analyzing manipulated images, videos, and audio using deep learning and digital forensic analysis.
+AI-powered multimodal deepfake detection system using computer vision, deep learning, and digital forensic analysis.
 
-The system combines neural inference, face detection, GradCAM explainability, FFT spectrum analysis, Error Level Analysis (ELA), and confidence-based threat scoring to identify synthetic or altered media content.
-
----
-
-# Features
-
-## Multimodal Deepfake Detection
-- Image deepfake analysis
-- Video frame-level detection
-- Audio manipulation analysis
-- Real-time media inference
+DeepTrace AI Detector analyzes images, videos, and audio files to identify manipulated or AI-generated content through a combination of neural network inference, forensic feature extraction, and explainable AI visualization techniques.
 
 ---
 
-## AI & Forensic Analysis
+## Features
+
+### Image Deepfake Detection
+- Face detection using MTCNN
 - EfficientNet-based classification
-- MTCNN face detection
 - GradCAM X-Ray visualization
 - FFT spectrum analysis
 - Error Level Analysis (ELA)
-- Threat confidence scoring
+- Confidence scoring
+
+### Video Deepfake Detection
+- Frame extraction and processing
+- Frame-level deepfake classification
+- Temporal consistency analysis
+- Aggregated video prediction
+
+### Audio Analysis
+- Audio preprocessing pipeline
+- Synthetic speech detection heuristics
+- Audio manipulation scoring
+
+### Forensic Dashboard
+- Interactive web interface
+- Real-time analysis
+- Threat level visualization
+- System activity logs
+- Multi-view forensic inspection
 
 ---
 
-## Backend System
-- FastAPI inference server
-- REST API architecture
-- File upload support
-- JSON response handling
-- Multi-format media processing
+## Technology Stack
 
----
-
-## Dashboard Interface
-- Dark forensic dashboard UI
-- X-Ray visualization mode
-- Spectral analysis panel
-- Threat-level indicators
-- Real-time system logs
-
----
-
-# Technology Stack
-
-## Backend
+### Backend
 - Python
 - FastAPI
 - Uvicorn
 
-## Deep Learning
+### Deep Learning
 - PyTorch
 - EfficientNet
 - facenet-pytorch
 
-## Computer Vision
+### Computer Vision
 - OpenCV
 - Albumentations
 - Pillow
 
-## Data Processing
+### Data Processing
 - NumPy
 - Pandas
 - SciPy
 - Scikit-learn
 
-## Visualization
+### Visualization
 - Matplotlib
 - GradCAM
 
 ---
 
-# Project Structure
+## Project Structure
 
 ```text
 deeptrace-ai-detector/
@@ -134,21 +126,16 @@ deeptrace-ai-detector/
 │   ├── test.py
 │   └── train.py
 │
-├── assets/
-│
 ├── test_images/
-│
-├── outputs/
-│   └── checkpoints/
 │
 └── test_output/
 ```
 
 ---
 
-# Installation
+## Installation
 
-## Clone Repository
+### Clone Repository
 
 ```bash
 git clone https://github.com/Satyam1245/deeptrace-ai-detector.git
@@ -156,11 +143,9 @@ git clone https://github.com/Satyam1245/deeptrace-ai-detector.git
 cd deeptrace-ai-detector
 ```
 
----
+### Create Virtual Environment
 
-## Create Virtual Environment
-
-### Windows
+#### Windows
 
 ```bash
 python -m venv venv
@@ -168,7 +153,7 @@ python -m venv venv
 venv\Scripts\activate
 ```
 
-### Linux / macOS
+#### Linux / macOS
 
 ```bash
 python3 -m venv venv
@@ -176,9 +161,7 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 
----
-
-## Install Dependencies
+### Install Dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -186,31 +169,7 @@ pip install -r requirements.txt
 
 ---
 
-# Required Dependencies
-
-```txt
-torch
-torchvision
-opencv-python
-facenet-pytorch
-efficientnet-pytorch
-numpy
-pandas
-scikit-learn
-Pillow
-albumentations
-matplotlib
-scipy
-tqdm
-PyYAML
-fastapi
-uvicorn
-python-multipart
-```
-
----
-
-# Running the Application
+## Running the Application
 
 Start the FastAPI server:
 
@@ -218,7 +177,7 @@ Start the FastAPI server:
 python app.py
 ```
 
-Application runs on:
+Application URL:
 
 ```text
 http://127.0.0.1:8000
@@ -226,91 +185,82 @@ http://127.0.0.1:8000
 
 ---
 
-# API Endpoint
+## Detection Workflow
 
-## POST `/predict`
+### Image Pipeline
 
-Supported media:
-- Images
-- Videos
-- Audio files
-
-The API response includes:
-- Prediction result
-- Confidence score
-- Threat level
-- Forensic analysis data
-- Visualization outputs
-
----
-
-# Detection Workflow
-
-## Image Pipeline
 1. Upload image
 2. Face detection using MTCNN
 3. Image preprocessing
-4. Neural inference
-5. GradCAM heatmap generation
+4. EfficientNet inference
+5. GradCAM visualization
 6. FFT spectrum analysis
-7. ELA forensic analysis
-8. Threat score calculation
+7. Error Level Analysis (ELA)
+8. Threat score generation
 
----
+### Video Pipeline
 
-## Video Pipeline
 1. Upload video
 2. Frame extraction
 3. Face localization
-4. Frame-level inference
-5. Fake frame aggregation
+4. Frame classification
+5. Prediction aggregation
 6. Final classification
 
----
+### Audio Pipeline
 
-## Audio Pipeline
 1. Upload audio
 2. Feature extraction
-3. Audio heuristic analysis
+3. Heuristic analysis
 4. Manipulation scoring
 5. Final prediction
 
 ---
 
-# Training
+## Dashboard Capabilities
 
-Run model training:
+The DeepTrace AI Detector dashboard provides:
+
+- Image, video, and audio uploads
+- X-Ray visualization mode
+- Spectrum analysis view
+- Artifact inspection tools
+- Threat level assessment
+- Confidence scoring
+- Real-time forensic logs
+
+---
+
+## Testing Assets
+
+Sample validation files are included in:
+
+```text
+test_output/
+```
+
+These files are provided to verify inference workflows and demonstrate system functionality.
+
+---
+
+## Model Checkpoints
+
+Model checkpoint files (`.pth`, `.pt`) are excluded from version control due to file size limitations.
+
+To train the model and generate checkpoints:
 
 ```bash
 python scripts/train.py
 ```
 
----
-
-# Inference
-
-Run standalone inference:
-
-```bash
-python scripts/inference.py
-```
+Generated checkpoints will be stored locally and are not included in this repository.
 
 ---
 
-# Testing
-
-Evaluate model performance:
-
-```bash
-python scripts/test.py
-```
-
----
-
-# Current Capabilities
+## Current Capabilities
 
 | Module | Status |
-|---|---|
+|----------|----------|
 | Image Detection | Available |
 | Video Detection | Available |
 | Audio Detection | Available |
@@ -322,37 +272,25 @@ python scripts/test.py
 
 ---
 
-# Future Improvements
+## Future Enhancements
 
 - Transformer-based multimodal fusion
 - Real-time webcam monitoring
-- Advanced audio synthesis detection
 - Cloud deployment support
 - Mobile optimization
-- Explainable AI dashboards
+- Advanced explainable AI dashboards
+- Distributed inference pipeline
 
 ---
 
-# Use Cases
-
-- Media authenticity verification
-- Social media content analysis
-- Digital forensic investigation
-- AI-generated media detection
-- Research and experimentation
-- Cybersecurity applications
-
----
-
-# License
+## License
 
 This project is licensed under the MIT License.
 
 ---
 
-# Author
+## Author
 
-Developed by Satyam Chaudhary
+**Satyam Chaudhary**
 
-GitHub:
-https://github.com/Satyam1245
+GitHub: https://github.com/Satyam1245
